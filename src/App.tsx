@@ -6,6 +6,7 @@ import Error from "./components/Error";
 import StartScreen from "./components/StartScreen";
 import "./index.css";
 import Question from "./components/Questions";
+import NextButton from "./components/NextButton";
 
 const initialState = {
   questions: [],
@@ -33,6 +34,8 @@ function reducer(state: any, action: { payload?: any[]; type: string }) {
             ? state.point + currentQuestion.points
             : state.point,
       };
+    case "nextQuestion":
+      return { ...state, answer: null, index: state.index + 1 };
     default:
       throw Error();
   }
@@ -80,6 +83,7 @@ function App() {
               dispatch={dispatch}
             />
           )}
+          <NextButton dispatch={dispatch} answer={answer} />
         </Main>
       </div>
     </>
