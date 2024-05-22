@@ -6,6 +6,7 @@ function Header() {
         alt="React logo"
       />
       <h1>The React Quiz</h1>
+      <div></div>
     </header>
   );
 }
